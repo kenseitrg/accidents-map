@@ -16,8 +16,8 @@ def update_coordinates(data:pd.DataFrame) -> pd.DataFrame:
         row = data.iloc[i, :]
         str_name = row["street"]
         (lat, lng) = get_lat_long(str_name)
-        data.loc[data["street"] == str_name, "latitude"] = lat
-        data.loc[data["street"] == str_name, "longtitude"] = lng
+        data.loc[data["street"] == str_name, "latitude"] = float(lat)
+        data.loc[data["street"] == str_name, "longtitude"] = float(lng)
     return data
 
 if  __name__ == "__main__":
